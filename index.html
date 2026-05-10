@@ -1,0 +1,52 @@
+"📚 Pointing Pairs: When a number in a box can only go in cells that also share a row or column, you can eliminate that number from the rest of that row/column outside the box.",
+  ],
+  why: [
+    "That number works here because: Row elimination rules out 1,3,5,8. Column elimination removes 2,4,6. The box constraint eliminates 7 and 9. Only your choice remains! ✅",
+    "Think of it this way — every other number has appeared in the same row, column, or 3×3 box as this cell. Process of elimination leaves exactly one valid answer. Logic wins! 🧠",
+  ]
+};
+
+function thinking() {
+  document.getElementById('aiMessage').innerHTML = '<span class="thinking"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>';
+}
+function showAI(arr) {
+  thinking();
+  setTimeout(()=>{
+    document.getElementById('aiMessage').innerHTML = arr[Math.floor(Math.random()*arr.length)];
+  }, 800);
+}
+function aiAnalyze() { showAI(aiMessages.analyze); }
+function aiHint() { showAI(aiMessages.hint); }
+function aiTeach() { showAI(aiMessages.teach); }
+function aiWhy() { showAI(aiMessages.why); }
+
+const strategies = [
+  {name:'Naked Singles', level:'Beginner', desc:'A cell with only one possible value.'},
+  {name:'Hidden Singles', level:'Beginner', desc:'A digit that fits only one cell in a group.'},
+  {name:'Naked Pairs', level:'Intermediate', desc:'Two cells sharing the same two candidates.'},
+  {name:'X-Wing', level:'Advanced', desc:'Eliminate candidates using a rectangle pattern.'},
+  {name:'Swordfish', level:'Expert', desc:'Like X-Wing but across three rows and columns.'},
+];
+document.getElementById('strategyList').innerHTML = strategies.map(s=>`
+  <div class="lb-row" style="border-radius:10px;margin-bottom:4px;">
+    <div style="flex:1">
+      <div style="font-weight:500;font-size:0.9rem">${s.name}</div>
+      <div style="font-size:0.75rem;color:var(--text2)">${s.desc}</div>
+    </div>
+    <div style="font-size:0.75rem;color:var(--accent);font-family:'Space Mono',monospace">${s.level}</div>
+  </div>`).join('');
+
+// ============================================================
+//  INIT
+// ============================================================
+renderNumpad();
+newGame();
+renderDailyLB();
+
+// Daily number based on date
+const d = new Date();
+document.getElementById('dailyNum').textContent = Math.floor((d-new Date(d.getFullYear(),0,0))/86400000) + (d.getFullYear()-2020)*365;
+</script>
+
+</body>
+</html>
