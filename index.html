@@ -1,14 +1,12 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZENKU — Premium Sudoku</title>
-<link href="[https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap](https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap)" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
   --ink: #141414;
   --paper: #f4f1eb;
@@ -26,7 +24,6 @@ HTML
   --shadow: 0 8px 30px rgba(20, 20, 20, 0.06);
   --shadow-hover: 0 12px 40px rgba(20, 20, 20, 0.1);
 }
-
 body {
   background: var(--paper);
   color: var(--ink);
@@ -36,8 +33,6 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
 }
-
-/* HEADER */
 header {
   display: flex;
   align-items: center;
@@ -45,8 +40,8 @@ header {
   padding: 16px 32px;
   border-bottom: 1px solid var(--border);
   background: var(--paper);
-  position: sticky; 
-  top: 0; 
+  position: sticky;
+  top: 0;
   z-index: 50;
   box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
@@ -59,7 +54,6 @@ header {
 }
 .logo em { color: var(--accent); font-style: normal; }
 .header-right { display: flex; gap: 12px; align-items: center; }
-
 .btn {
   padding: 8px 18px;
   border-radius: 8px;
@@ -80,8 +74,6 @@ header {
   border-color: var(--ink);
 }
 .btn.primary:hover { background: #2a2a2a; box-shadow: var(--shadow); }
-
-/* MAIN LAYOUT */
 .main {
   display: flex;
   flex: 1;
@@ -91,10 +83,7 @@ header {
   padding: 32px 24px;
   gap: 40px;
 }
-
-/* LEFT: GAME */
 .game-side { flex: 1; min-width: 0; }
-
 .game-meta {
   display: flex;
   justify-content: space-between;
@@ -127,8 +116,6 @@ header {
   color: var(--ink);
   letter-spacing: 1px;
 }
-
-/* SUDOKU GRID */
 .grid-container {
   width: 100%;
   aspect-ratio: 1;
@@ -162,10 +149,8 @@ header {
   border: none;
   outline: none;
 }
-/* Box borders */
 .cell[data-col="2"], .cell[data-col="5"] { border-right: 3px solid var(--ink); }
 .cell[data-row="2"], .cell[data-row="5"] { border-bottom: 3px solid var(--ink); }
-
 .cell.given { font-weight: 700; }
 .cell.user-input { color: var(--user-color); font-weight: 400; }
 .cell.error { color: var(--error-color); background: #fdf0ee; font-weight: 700; }
@@ -173,7 +158,6 @@ header {
 .cell.highlighted { background: #f3f3f3; }
 .cell.same-num { background: #d0e1fd; }
 .cell:hover:not(.given) { background: #f5f5f5; }
-
 .notes-mini {
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -188,8 +172,6 @@ header {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
 }
-
-/* NUMPAD */
 .numpad {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
@@ -211,15 +193,13 @@ header {
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
-.num-btn:hover { 
-  background: var(--ink); 
-  color: var(--paper); 
+.num-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
   border-color: var(--ink);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
-/* ACTIONS */
 .actions {
   display: flex;
   gap: 8px;
@@ -244,8 +224,6 @@ header {
 .act-btn:hover { border-color: var(--ink); color: var(--ink); background: var(--paper); }
 .act-btn.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .act-btn.on .ico { color: var(--paper); }
-
-/* STATS ROW */
 .stats-row {
   display: flex; gap: 12px;
   max-width: 480px; margin: 0 auto;
@@ -261,8 +239,6 @@ header {
   font-size: 1.2rem; font-weight: 700; color: var(--accent);
 }
 .stat-box .sl { font-size: 0.7rem; font-weight: 500; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-
-/* RIGHT: AI PANEL */
 .ai-side {
   width: 320px;
   flex-shrink: 0;
@@ -270,7 +246,6 @@ header {
   flex-direction: column;
   gap: 24px;
 }
-
 .ai-card {
   background: var(--cell);
   border: 1px solid var(--border);
@@ -295,7 +270,6 @@ header {
 }
 .ai-card-title { font-weight: 700; font-size: 0.95rem; }
 .ai-card-sub { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
-
 .ai-body { padding: 20px; }
 .ai-response {
   font-size: 0.85rem;
@@ -303,10 +277,9 @@ header {
   color: var(--ink);
   min-height: 80px;
   border-left: 3px solid var(--accent);
-  padding-left: 12px;
-  background: var(--paper);
   padding: 12px;
   border-radius: 0 8px 8px 0;
+  background: var(--paper);
   margin-bottom: 16px;
 }
 .thinking-dots { display: inline-flex; gap: 4px; align-items: center; height: 20px; }
@@ -319,7 +292,6 @@ header {
 .dot:nth-child(2) { animation-delay: 0.2s; }
 .dot:nth-child(3) { animation-delay: 0.4s; }
 @keyframes blink { 0%,80%,100%{opacity:0.3; transform: scale(1);} 40%{opacity:1; transform: scale(1.2);} }
-
 .ai-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .ai-btn {
   padding: 8px 12px;
@@ -338,7 +310,59 @@ header {
 .ai-btn.main:hover:not(:disabled) { background: var(--accent-hover); }
 .ai-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-/* DAILY CARD */
+/* API KEY SECTION */
+.api-key-section {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--cream);
+}
+.api-key-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.api-key-row {
+  display: flex;
+  gap: 6px;
+}
+.api-key-input {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--cell);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.api-key-input:focus { border-color: var(--accent2); }
+.api-key-save {
+  padding: 7px 12px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.api-key-save:hover { background: #2a2a2a; }
+.api-status {
+  font-size: 0.7rem;
+  margin-top: 5px;
+  color: var(--muted);
+}
+.api-status.ok { color: #2a8a2a; }
+.api-status.err { color: var(--error-color); }
+
 .daily-card {
   background: var(--ink);
   color: var(--paper);
@@ -389,8 +413,6 @@ header {
   position: relative; z-index: 2;
 }
 .btn-daily:hover { background: var(--accent-hover); transform: translateY(-1px); }
-
-/* PRO CARD */
 .pro-card {
   border: 1px solid #e8c84a;
   border-radius: 12px;
@@ -429,8 +451,6 @@ header {
   box-shadow: 0 4px 15px rgba(232,200,74,0.4);
 }
 .btn-pro:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(232,200,74,0.5); }
-
-/* TOAST */
 .toast {
   position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
   background: var(--ink); color: var(--paper);
@@ -440,8 +460,6 @@ header {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-/* OVERLAYS */
 .overlay {
   position: fixed; inset: 0;
   background: rgba(20,20,20,0.6);
@@ -470,8 +488,6 @@ header {
   font-size: 2.5rem; font-weight: 700; color: var(--accent); margin: 8px 0 24px;
 }
 .overlay-detail { font-size: 0.9rem; color: var(--muted); margin-bottom: 24px; font-weight: 500; }
-
-/* RESPONSIVE */
 @media (max-width: 850px) {
   .main { flex-direction: column; padding: 20px; gap: 32px; }
   .ai-side { width: 100%; }
@@ -501,13 +517,10 @@ header {
       </div>
       <div class="timer" id="timer">00:00</div>
     </div>
-
     <div class="grid-container">
       <div class="sudoku-grid" id="grid"></div>
     </div>
-
     <div class="numpad" id="numpad"></div>
-
     <div class="actions">
       <button class="act-btn" onclick="undo()"><span class="ico">↩</span>Undo</button>
       <button class="act-btn" onclick="erase()"><span class="ico">⌫</span>Erase</button>
@@ -515,7 +528,6 @@ header {
       <button class="act-btn" onclick="getHint()"><span class="ico">💡</span>Hint</button>
       <button class="act-btn" onclick="checkBoard()"><span class="ico">✓</span>Check</button>
     </div>
-
     <div class="stats-row">
       <div class="stat-box"><div class="sv" id="mistakesVal">0</div><div class="sl">Mistakes</div></div>
       <div class="stat-box"><div class="sv" id="hintsVal">3</div><div class="sl">Hints</div></div>
@@ -532,7 +544,7 @@ header {
         <div class="ai-icon">🧠</div>
         <div>
           <div class="ai-card-title">AI Coach</div>
-          <div class="ai-card-sub">Powered by Smart Logic</div>
+          <div class="ai-card-sub">Powered by Claude AI</div>
         </div>
       </div>
       <div class="ai-body">
@@ -545,6 +557,14 @@ header {
           <button class="ai-btn" onclick="askAI('strategy')" id="stratBtn">📚 Strategy</button>
           <button class="ai-btn" onclick="askAI('why')" id="whyBtn">❓ Why here?</button>
         </div>
+      </div>
+      <div class="api-key-section">
+        <div class="api-key-label">Anthropic API Key</div>
+        <div class="api-key-row">
+          <input type="password" class="api-key-input" id="apiKeyInput" placeholder="sk-ant-..." />
+          <button class="api-key-save" onclick="saveApiKey()">Save</button>
+        </div>
+        <div class="api-status" id="apiStatus">Enter your key to enable real AI analysis</div>
       </div>
     </div>
 
@@ -685,15 +705,12 @@ function renderGrid() {
     cell.dataset.row = r;
     cell.dataset.col = c;
     cell.dataset.idx = i;
-
     if (givenCells[i]) cell.classList.add('given');
     else if (board[i] > 0 && board[i] !== solution[i]) cell.classList.add('error');
     else if (board[i] > 0) cell.classList.add('user-input');
-
     if (i === selected) cell.classList.add('selected');
     else if (selected >= 0 && sameGroup(i, selected)) cell.classList.add('highlighted');
     if (selected >= 0 && board[i] > 0 && board[i] === board[selected] && i !== selected) cell.classList.add('same-num');
-
     if (notes[i].size > 0 && board[i] === 0) {
       const ng = document.createElement('div');
       ng.className = 'notes-mini';
@@ -707,7 +724,6 @@ function renderGrid() {
     } else {
       cell.textContent = board[i] || '';
     }
-
     cell.addEventListener('click', () => selectCell(i));
     g.appendChild(cell);
   }
@@ -887,52 +903,135 @@ function toast(msg) {
 }
 
 // ============================================================
-// AI COACH MOCK (Replaces direct API call for frontend safety)
+// API KEY MANAGEMENT
 // ============================================================
+function saveApiKey() {
+  const key = document.getElementById('apiKeyInput').value.trim();
+  if (!key.startsWith('sk-ant-')) {
+    document.getElementById('apiStatus').textContent = 'Invalid key format (must start with sk-ant-)';
+    document.getElementById('apiStatus').className = 'api-status err';
+    return;
+  }
+  localStorage.setItem('zenkuApiKey', key);
+  document.getElementById('apiStatus').textContent = '✓ API key saved — AI Coach is active!';
+  document.getElementById('apiStatus').className = 'api-status ok';
+  document.getElementById('apiKeyInput').value = '';
+}
+
+function getApiKey() {
+  return localStorage.getItem('zenkuApiKey') || '';
+}
+
+// Load saved key status on init
+window.addEventListener('load', () => {
+  const saved = getApiKey();
+  if (saved) {
+    document.getElementById('apiStatus').textContent = '✓ API key loaded — AI Coach is active!';
+    document.getElementById('apiStatus').className = 'api-status ok';
+  }
+});
+
+// ============================================================
+// AI COACH — REAL CLAUDE API
+// ============================================================
+function getBoardContext() {
+  // Build a readable board snapshot for Claude
+  const rows = [];
+  for (let r = 0; r < 9; r++) {
+    const row = [];
+    for (let c = 0; c < 9; c++) {
+      const idx = r * 9 + c;
+      const val = board[idx];
+      row.push(val === 0 ? '.' : String(val));
+    }
+    rows.push(row.join(' '));
+  }
+  const boardStr = rows.join('\n');
+
+  const emptyCells = board.filter(v => v === 0).length;
+  const errorCells = board.filter((v, i) => v > 0 && !givenCells[i] && v !== solution[i]).length;
+
+  let selectedInfo = '';
+  if (selected >= 0) {
+    const r = Math.floor(selected / 9) + 1;
+    const c = (selected % 9) + 1;
+    const val = board[selected];
+    selectedInfo = `\nSelected cell: Row ${r}, Column ${c}, current value: ${val === 0 ? 'empty' : val}`;
+    if (notes[selected].size > 0) {
+      selectedInfo += `, pencil notes: [${[...notes[selected]].join(', ')}]`;
+    }
+  }
+
+  return `Current Sudoku board (dots = empty cells):\n${boardStr}\n\nDifficulty: ${difficulty}\nEmpty cells remaining: ${emptyCells}\nErrors: ${errorCells}${selectedInfo}`;
+}
+
 async function askAI(type) {
   if (aiCooldown) { toast('Please wait a moment...'); return; }
+
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    document.getElementById('aiResponse').textContent = '⚠️ Please enter your Anthropic API key below to enable the AI Coach.';
+    return;
+  }
+
   aiCooldown = true;
-  setTimeout(() => aiCooldown = false, 2500);
+  setTimeout(() => aiCooldown = false, 3000);
 
   const el = document.getElementById('aiResponse');
   el.innerHTML = '<span class="thinking-dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>';
 
-  // Disable buttons
-  ['analyzeBtn','hintBtn','stratBtn','whyBtn'].forEach(id => {
-    document.getElementById(id).disabled = true;
-  });
+  const btnIds = ['analyzeBtn', 'hintBtn', 'stratBtn', 'whyBtn'];
+  btnIds.forEach(id => document.getElementById(id).disabled = true);
 
-  // Simulate network delay for realistic feel
-  await new Promise(r => setTimeout(r, 1200 + Math.random() * 800));
+  const boardContext = getBoardContext();
 
-  let response = "";
-  const emptyCells = board.filter(v => v === 0).length;
-  const isCellSelected = selected >= 0;
+  const prompts = {
+    analyze: `${boardContext}\n\nAnalyze this Sudoku board. Identify the most constrained areas, point out any patterns (naked singles, hidden singles, etc.), and suggest where the player should focus next. Be specific about rows, columns, and 3x3 blocks. Keep response under 80 words.`,
+    hint: `${boardContext}\n\nGive a strategic hint for the selected cell (or if none selected, the most obvious next move). Do NOT reveal the answer directly. Instead guide the player's thinking using Sudoku logic like elimination or scanning. Keep response under 70 words.`,
+    strategy: `${boardContext}\n\nExplain ONE specific Sudoku solving strategy that applies to the current board state. Name the technique (e.g. Cross-Hatching, Naked Pair, X-Wing) and show concretely where it can be applied right now. Keep response under 80 words.`,
+    why: `${boardContext}\n\nFor the selected cell, explain what values are possible and why based on its row, column, and 3x3 block constraints. Walk through the elimination logic step by step. If no cell is selected, explain constraint logic in general. Keep response under 80 words.`
+  };
 
-  // Context-aware Mock Responses
-  if (type === 'analyze') {
-    if (emptyCells > 60) response = "Great start! Focus on scanning rows and columns with the most given numbers. Try looking for numbers 1, 2, or 3 first.";
-    else if (emptyCells < 20) response = "You're in the endgame now! Look for hidden singles in the remaining 3x3 blocks to wrap this up.";
-    else response = "The board has solid foundations. Focus on the highly constrained 3x3 blocks. There might be a naked pair waiting to be found!";
-  } 
-  else if (type === 'hint') {
-    if (!isCellSelected) response = "Please select a cell first so I can point you in the right direction! 🎯";
-    else response = `Take a closer look at Row ${Math.floor(selected / 9) + 1}, Column ${selected % 9 + 1}. Check which numbers are already present in its 3x3 block.`;
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 200,
+        system: 'You are ZENKU AI Coach, an expert Sudoku tutor. You analyze boards and teach strategies without giving away answers directly. Be concise, specific, and educational. Never exceed the word limit.',
+        messages: [{ role: 'user', content: prompts[type] }]
+      })
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw new Error(err.error?.message || `API error ${response.status}`);
+    }
+
+    const data = await response.json();
+    const text = data.content.map(b => b.type === 'text' ? b.text : '').join('').trim();
+    el.textContent = text;
+
+  } catch (err) {
+    console.error('AI Coach error:', err);
+    if (err.message.includes('401') || err.message.includes('invalid')) {
+      el.textContent = '⚠️ Invalid API key. Please check and re-enter your Anthropic key below.';
+      document.getElementById('apiStatus').textContent = '✗ Invalid key';
+      document.getElementById('apiStatus').className = 'api-status err';
+    } else if (err.message.includes('429')) {
+      el.textContent = '⏳ Rate limit reached. Wait a moment and try again.';
+    } else {
+      el.textContent = '⚠️ AI Coach is temporarily unavailable. Check your API key and connection.';
+    }
+  } finally {
+    btnIds.forEach(id => document.getElementById(id).disabled = false);
   }
-  else if (type === 'strategy') {
-    response = "Have you tried 'Cross-Hatching'? Focus on a single number (e.g., 5) and scan all rows and columns to find the only possible cell it can go in a 3x3 block.";
-  }
-  else if (type === 'why') {
-    if (!isCellSelected) response = "Select an empty cell first, and I'll explain what can or cannot go there based on Sudoku rules.";
-    else response = "Every cell is constrained by its Row, Column, and 3x3 Block. If a number already exists in any of those three areas, it cannot be placed here. Process of elimination is key!";
-  }
-
-  el.textContent = response;
-
-  // Re-enable buttons
-  ['analyzeBtn','hintBtn','stratBtn','whyBtn'].forEach(id => {
-    document.getElementById(id).disabled = false;
-  });
 }
 
 // ============================================================
@@ -953,6 +1052,5 @@ document.getElementById('dayNum').textContent =
 renderNumpad();
 newGame();
 </script>
-
 </body>
 </html>
